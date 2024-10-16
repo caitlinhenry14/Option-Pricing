@@ -23,7 +23,7 @@ def vega(s, x, r, sigma, tau):
 
 def theta(s, x, r, sigma, tau, option_type):
     d1 = d(s, x, r, sigma, tau)
-    d2 = d(s, x, r, sigma, tau, operator=operator.sub)
+    d2 = d(s, x, r, sigma, tau, operation=operator.sub)
     if option_type == 'call':
         theta_value = (- (s * normal_pdf(d1) * sigma) / (2 * np.sqrt(tau))
                        - r * x * np.exp(-r * tau) * normal_cdf(d2))
@@ -34,10 +34,9 @@ def theta(s, x, r, sigma, tau, option_type):
 
 
 def rho(s, x, r, sigma, tau, option_type):
-    d2 = d(s, x, r, sigma, tau, operator=operator.sub)
+    d2 = d(s, x, r, sigma, tau, operation=operator.sub)
     if option_type == 'call':
         return x * tau * np.exp(-r * tau) * normal_cdf(d2)
     elif option_type == 'put':
         return -x * tau * np.exp(-r * tau) * normal_cdf(-d2)
     
-
