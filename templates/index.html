@@ -3,36 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Option Pricing and Greeks Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  <!-- Link to the CSS -->
+    <title>Option Price Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Option Pricing and Greeks Calculator</h1>
+        <h1>Option Price Calculator</h1>
 
         <form method="POST" action="/calculate">
-            <label>Stock Price (S):</label><br>
-            <input type="text" name="s" required><br><br>
+            <div class="form-grid">
+                <!-- Stock Price -->
+                <div>
+                    <label for="s">Stock Price (S):</label>
+                    <input type="text" name="s" required>
+                </div>
 
-            <label>Strike Price (X):</label><br>
-            <input type="text" name="x" required><br><br>
+                <!-- Strike Price -->
+                <div>
+                    <label for="x">Strike Price (X):</label>
+                    <input type="text" name="x" required>
+                </div>
 
-            <label>Risk-Free Rate (r):</label><br>
-            <input type="text" name="r" required><br><br>
+                <!-- Risk-Free Rate -->
+                <div>
+                    <label for="r">Risk-Free Rate (r):</label>
+                    <input type="text" name="r" required>
+                </div>
 
-            <label>Volatility (σ):</label><br>
-            <input type="text" name="sigma" required><br><br>
+                <!-- Volatility -->
+                <div>
+                    <label for="sigma">Volatility (σ):</label>
+                    <input type="text" name="sigma" required>
+                </div>
 
-            <label>Time to Expiry (τ in years):</label><br>
-            <input type="text" name="tau" required><br><br>
+                <!-- Time to Expiry -->
+                <div>
+                    <label for="tau">Time to Expiry (τ in years):</label>
+                    <input type="text" name="tau" required>
+                </div>
 
-            <label>Option Type (call/put):</label><br>
-            <input type="text" name="option_type" value="call" required><br><br>
+                <!-- Option Type (Dropdown) -->
+                <div>
+                    <label for="option_type">Option Type:</label>
+                    <select name="option_type" required>
+                        <option value="call">Call</option>
+                        <option value="put">Put</option>
+                    </select>
+                </div>
 
-            <label>Mode (price/greeks):</label><br>
-            <input type="text" name="mode" value="price" required><br><br>
+                <!-- Mode (Dropdown) -->
+                <div>
+                    <label for="mode">Mode:</label>
+                    <select name="mode" required>
+                        <option value="price">Price</option>
+                        <option value="greeks">Greeks</option>
+                    </select>
+                </div>
 
-            <input type="submit" value="Calculate">
+                <!-- Submit Button (Bottom-Right) -->
+                <input type="submit" value="Calculate">
+            </div>
         </form>
     </div>
 </body>
