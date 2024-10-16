@@ -1,60 +1,109 @@
-/* Overall page styles */
 body {
-    background-color: #3c465c;  /* Background color */
-    color: #c0c0c0;             /* Text color */
-    font-family: 'Arial', sans-serif;  /* Sans-serif font */
-    display: flex;
-    justify-content: center;    /* Center horizontally */
-    align-items: center;        /* Center vertically */
-    height: 100vh;              /* Full viewport height */
-    margin: 0;                  /* Remove default margins */
-}
-
-/* Center the form in a container */
-.container {
-    text-align: center;         /* Center text in the form */
-    padding: 20px;
-    background-color: #505a75;  /* Slightly darker container */
-    border-radius: 10px;        /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);  /* Add a shadow */
-}
-
-/* Input fields and labels */
-input[type="text"] {
-    padding: 8px;
-    width: 250px;
-    border-radius: 5px;
-    border: none;
-    margin: 5px 0;
-}
-
-label {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Submit button */
-input[type="submit"] {
-    background-color: #4CAF50;
+    font-family: "IBM Plex Sans", sans-serif;
+    background: linear-gradient(90deg, #132054, #29084e, #170212); /* Gradient */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for centering and limiting width */
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 90%;  
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header for the title - IBM Plex Sans Regular (400), Capitalized */
+h1 {
+    font-size: 53px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    font-weight: 400; /* Regular weight */
+}
+
+/* Subheading styles - IBM Plex Sans Light (300), Capitalized */
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-transform: capitalize; 
+    text-align: center; 
+    font-weight: 300;
+    display: block;
+}
+
+/* Form container styled as a grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px; 
+    justify-items: center;
+    align-items: center;
+}
+
+/* Input fields, dropdowns, and submit button - same size, centered */
+input[type="text"], select, input[type="submit"] {
+    padding: 10px 15px;
+    width: 100%; 
+    height: 55px; 
+    border-radius: 15px; 
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    margin: 5px 0;
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
+    display: inline-block;
+}
+
+/* Fix dropdown (select) styling */
+select {
+    width: 100%; /* URGHHHHHH WHY IS THIS NOT WORKING */
+    padding: 10px; /* Add some padding for visual consistency */
+    height: 55px; /* Ensure height consistency */
+    background-color: transparent; 
+    border: 2px solid white;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    appearance: none; /* Remove default browser appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align-last: center; 
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="0,0 140,0 70,80" fill="white"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 30px; /* Space for the custom arrow */
+}
+
+/* Submit button specific styling */
+input[type="submit"] {
+    border: 2px solid white;
+    background: white;
+    color: #3c062e;  
+    text-transform: capitalize; 
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    transition: all 0.3s ease;
 }
 
+/* Submit button hover effect */
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #4e178e;
+    color: white;
 }
 
-/* Styling links */
-a {
-    color: #c0c0c0;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+/* Responsive tweaks: Reduce gap for smaller screens */
+@media (max-width: 768px) {
+    .form-grid {
+        gap: 20px;
+    }
 }
