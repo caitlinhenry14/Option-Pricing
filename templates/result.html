@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  <!-- Link to the CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Calculation Result</h1>
+
+        {% if result %}
+            {% if mode == 'price' %}
+                <p>{{ result }}</p>
+            {% else %}
+                <ul>
+                    <li>Delta: {{ result['Delta'] }}</li>
+                    <li>Gamma: {{ result['Gamma'] }}</li>
+                    <li>Vega: {{ result['Vega'] }}</li>
+                    <li>Theta: {{ result['Theta'] }}</li>
+                    <li>Rho: {{ result['Rho'] }}</li>
+                </ul>
+            {% endif %}
+        {% else %}
+            <p>No result available.</p>
+        {% endif %}
+
+        <a href="/">Go back</a>
+    </div>
+</body>
+</html>

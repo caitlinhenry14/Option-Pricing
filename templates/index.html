@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Pricing and Greeks Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  <!-- Link to the CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Option Pricing and Greeks Calculator</h1>
+
+        <form method="POST" action="/calculate">
+            <label>Stock Price (S):</label><br>
+            <input type="text" name="s" required><br><br>
+
+            <label>Strike Price (X):</label><br>
+            <input type="text" name="x" required><br><br>
+
+            <label>Risk-Free Rate (r):</label><br>
+            <input type="text" name="r" required><br><br>
+
+            <label>Volatility (σ):</label><br>
+            <input type="text" name="sigma" required><br><br>
+
+            <label>Time to Expiry (τ in years):</label><br>
+            <input type="text" name="tau" required><br><br>
+
+            <label>Option Type (call/put):</label><br>
+            <input type="text" name="option_type" value="call" required><br><br>
+
+            <label>Mode (price/greeks):</label><br>
+            <input type="text" name="mode" value="price" required><br><br>
+
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+</body>
+</html>
